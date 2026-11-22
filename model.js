@@ -8,6 +8,7 @@ export function validate(s){
   if(!s||s.version!==1||!s.plans||typeof s.plans!=='object'||Array.isArray(s.plans)||!Array.isArray(s.transactions)||!Array.isArray(s.snapshots)||s.transactions.length>100000||s.snapshots.length>10000)throw Error('Nieprawidłowy format danych.');
   for(const [m,p]of Object.entries(s.plans)){
     if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(m)||!p||!['salary','revenue','company','tax','zus','vat','saving'].every(k=>numeric(p[k]))||!['fixed','weights','limits'].every(k=>Array.isArray(p[k])&&p[k].length===categories.length&&p[k].every(numeric)))throw Error('Nieprawidłowy plan miesiąca.');
+    if(!['autoBusiness','businessActive'].every(k=>p[k]===undefined||typeof p[k]==='boolean')||!['accounting','office','vatRate','taxRate'].every(k=>p[k]===undefined||numeric(p[k]))||(p.vatRate??0)>100||(p.taxRate??0)>100)throw Error('Nieprawidłowe ustawienia kalkulatora firmy.');
   }
   for(const t of s.transactions)if(!t||!date(t.date)||!numeric(t.amount)||t.amount<=0||!['expense','salary','revenue','company','tax','zus','vat','transfer'].includes(t.kind)||!text(t.id)||!t.id||!text(t.note)||!categories.includes(t.category))throw Error('Nieprawidłowa transakcja.');
   for(const w of s.snapshots)if(!w||!date(w.date)||!['cash','invest','goods','debt','contributions'].every(k=>numeric(w[k]))||!text(w.id)||!w.id)throw Error('Nieprawidłowy stan majątku.');

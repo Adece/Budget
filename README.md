@@ -30,7 +30,11 @@ W starej aplikacji pobierz kopię JSON i w nowej wybierz „Wczytaj kopię”. T
 
 ## Użytkowanie
 
-„Plan miesiąca” → dochody, zobowiązania, oszczędności → kwoty stałe i wagi kategorii → „Oblicz limity” → „Zapisz plan miesiąca”. Każdy wydatek dodawaj jako transakcję. Zmiany automatycznie trafiają do bazy po zatwierdzeniu formularza. Informacja o udanym zapisie pojawia się dopiero po potwierdzeniu serwera.
+„Plan miesiąca” → miesięczne przychody → własne limity kwotowe kategorii → „Zapisz plan miesiąca”. Każdy wydatek dodawaj jako transakcję. Podsumowanie pokazuje, ile można jeszcze wydać w każdej kategorii. Ostrzeżenie pojawia się przed zapisem wydatku przekraczającego limit, po zapisie oraz stale na podsumowaniu. Przekroczenie nie blokuje rejestracji wydatku. Zmiany trafiają do bazy po zatwierdzeniu formularza i potwierdzeniu serwera.
+
+Kalkulator firmy domyślnie wydziela 23% VAT z kwoty brutto, odkłada 12% przychodu bez VAT jako rezerwę na ryczałt i odejmuje raz na miesiąc ZUS 830 zł, księgowość 360 zł i biuro 50 zł. Stawki i koszty można zmieniać dla każdego miesiąca. Wariant z VAT 0% jest dostępny przez zmianę stawki. To uproszczona rezerwa do budżetu — bez odliczeń składek i VAT od zakupów, nie gotowa deklaracja podatkowa. Przychody z firmy po odliczeniach oraz prywatne dochody netto zasilają plan. Nie trzeba wpisywać ich ponownie jako transakcji. Istniejące płatności firmowe pozostają oddzielnym rejestrem i nie odejmują kosztów drugi raz.
+
+Starsze plany zachowują ręczne kwoty. Aby w takim miesiącu użyć kalkulatora, wybierz „Automatycznie” w sposobie liczenia i sprawdź wartości kosztów. Nowe miesiące od razu mają tryb automatyczny. Plan można zapisać mimo przekroczenia przychodów, po potwierdzeniu ostrzeżenia; aplikacja stale pokazuje brakującą kwotę. Majątek i zapisane transakcje zachowują zgodność z poprzednią wersją.
 
 Przy jednoczesnej edycji na kilku urządzeniach starszy zapis jest odrzucany, aby nie nadpisać nowszych danych. W takiej sytuacji odśwież aplikację i ponownie wprowadź ostatnią zmianę. Przy braku sieci aplikacja zgłasza błąd i wymaga odświeżenia; nie działa w trybie offline. Hasło nie jest zapisywane w przeglądarce. Sesja trwa maksymalnie 7 dni; „Wyloguj się” unieważnia ją w bazie.
 
